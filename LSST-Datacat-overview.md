@@ -10,8 +10,8 @@ Datacat is a semantic meta-file system with metadata indexing built for the web.
 
 # Main Components
 Conceptually, Datacat can be viewed as these main components:
-*   A Datastore ** 
-*   VFS to interact with the Datastore
+*   A Datastore interface and implementation ** 
+*   VFS to interact with the Datastore interface
 *   RESTful APIs to interact with the VFS
 *   A Web Application/WUI which uses the RESTful APIs
 *   Client libraries which use the RESTful APIs
