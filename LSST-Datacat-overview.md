@@ -10,7 +10,8 @@ Datacat is a semantic meta-file system with metadata indexing built for the web.
 
 # Main Components
 Conceptually, Datacat can be viewed as these main components:
-*   A Datastore, (currently we use using Oracle, with unit tests using HSQLDB. SQLite, MySQL, and PostgreSQL should work fine)
+*   A Datastore, 
+   *   Currently we use Oracle, with unit tests using HSQLDB. SQLite, MySQL, and PostgreSQL should work fine.
 *   VFS to interact with the Datastore
 *   RESTful APIs to interact with the VFS
 *   A Web Application/WUI which uses the RESTful APIs
