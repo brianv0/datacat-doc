@@ -2,10 +2,11 @@
 Datacat is a semantic meta-file system with metadata indexing built for the web. It is designed for the tracking and organization of files and file replicas across heterogeneous storage systems
 
 
-<span style="color: rgb(128,0,0);">**Note: Datacat is an ongoing rewrite, intended for better modularity and reuse across experiments of the Fermi Data Catalog application.**</span>
+**Note: Datacat is an ongoing rewrite, intended for better modularity and reuse across experiments, of the Fermi Data Catalog application.**
 
-<span style="color: rgb(128,0,0);"><u>**All features mentioned have been implemented in either the new rewrite or the current implementation, but some are still being implemented for the rewrite. <br><br>
-The biggest limitation for using only Datacat (the rewrite) today (on a database other than Oracle) is probably the Web Application.**</u></span>
+<u>**All features mentioned have been implemented in either the new rewrite or the current implementation, but some are still being implemented for the rewrite. 
+
+The biggest limitation for using only Datacat (the rewrite) today (on a database other than Oracle) is probably the Web Application.**</u>
 
 # Main Components
 Conceptually, Datacat can be viewed as these main components:
