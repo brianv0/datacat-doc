@@ -90,9 +90,10 @@ Datacat defines an interface to a datastore.
 *   Currently one implementation exists which uses a SQL database for the store
     *   SQL database must implement temporary tables for Search
 *   Other datastores implementations are possible, such as BerkeleyDB, Cassandra, or even potentially a file system (btrfs?)
-*   Application-level replication could be implemented for high availability parallel deployments
+*   Application-level replication could be implemented for high availability/high performance deployments
     *   Through use of Paxos, Raft, zab, etc...
 *   Datastore-level replication could be used as well
+   *   i.e. use a distributed database with many workers (and add interfaces for VFS cache coherency)
 
 ## Clients
 These are clients we directly support.
