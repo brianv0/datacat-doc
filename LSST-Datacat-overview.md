@@ -21,7 +21,7 @@ Conceptually, Datacat can be viewed as these main components:
 **Note**: Currently we use Oracle, with unit tests using HSQLDB. SQLite, MySQL, and PostgreSQL should work fine.
 
 ## Primitives
-Datacat defines two main primitives
+Datacat defines two main file system-like primitives for interaction
 *   **Dataset**, the abstract representation of a data file
 *   **Containers (groups and folders)**, which are analagous to POSIX directories.
 
