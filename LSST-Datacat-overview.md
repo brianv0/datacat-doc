@@ -1,24 +1,11 @@
 # Datacat
-Datacat is a semantic meta-file system with metadata indexing built for the web. It is designed for the tracking and organization of files and file replicas across heterogeneous storage systems
-
+Datacat is a semantic meta-file system with metadata indexing built for the web. It is designed for the tracking and organization of files and their replicas across heterogeneous storage systems. We've designed it to be web-first with a REST api to facilitate ease of use among globally diverse systems and users.
 
 **Note: Datacat is an ongoing rewrite, intended for better modularity and reuse across experiments, of the Fermi Data Catalog application.**
 
 **All features mentioned have been implemented in either the new rewrite or the current implementation, but some are still being implemented for the rewrite.**
 
-**The biggest limitation for using only Datacat (the rewrite) today (on a database other than Oracle) is probably the Web Application.**
-
-# Main Components
-Conceptually, Datacat can be viewed as these main components:
-*   A Datastore interface and implementation ** 
-*   VFS to interact with the Datastore interface
-*   RESTful APIs to interact with the VFS
-*   A Web Application/WUI which uses the RESTful APIs
-*   Client libraries which use the RESTful APIs
-*   A CLI implemented with the Client libraries
-*   A Crawler implemented with the Client libraries
-
-**Note**: Currently we use Oracle, with unit tests using HSQLDB. SQLite, MySQL, and PostgreSQL should work fine.
+**The biggest limitation for using the rewrite today is probably the direct user interaction through Web User Interface, which is currently Oracle-only.**
 
 ## Primitives
 Datacat defines two main file system-like primitives for interaction
@@ -38,12 +25,30 @@ A Dataset consists of one or more versions of a file, each with one or more poss
 *   **Groups** are a special container which may only contain datasets. They are meant to logically group datasets which might be treated as a macro dataset.
 
 # Components
+Conceptually, Datacat can be viewed as these main components:
+*   A Datastore interface and implementation ** 
+*   VFS to interact with the Datastore interface
+*   RESTful APIs to interact with the VFS
+*   A Web Application/WUI which uses the RESTful APIs
+*   Client libraries which use the RESTful APIs
+*   A CLI implemented with the Client libraries
+*   A Crawler implemented with the Client libraries
+
+**Note**: Currently we use Oracle, with unit tests using HSQLDB. SQLite, MySQL, and PostgreSQL should work fine.
+
+## Crawler
+Listens/polls for resource updates (i.e. new datasets created/replicas added to existing datasets). The Crawler is meant to automatically extract metadata out of the file which may be useful for indexing and searching on. Typically, this includes the file size, checksum, event count, user metadata.
+
 ## REST api
 We believe an open, well-defined REST API is the best way to support a globally diverse project without limiting users to a specific language.
 *   All supported clients are implemented using this REST API.
 
-## Crawler
-Listens/polls for resource updates (i.e. new datasets created/replicas added to existing datasets). The Crawler is meant to automatically extract metadata out of the file which may be useful for indexing and searching on. Typically, this includes the file size, checksum, event count, user metadata.
+## Clients
+These are clients we directly support.
+*   Support Web Application Client/WUI (Web User Interface)
+*   Support native python client and a java client
+*   Support a CLI implemented with python client
+*   Through WUI, will probably Javascript client for rich web interaction/node.js support (if desired)
 
 ## Searching
 Datacat indexes it's metadata, allowing for fast search.
@@ -95,17 +100,12 @@ Datacat defines an interface to a datastore.
 *   Datastore-level replication could be used as well
    *   i.e. use a distributed database with many workers (and add interfaces for VFS cache coherency)
 
-## Clients
-These are clients we directly support.
-*   Support Web Application Client/WUI (Web User Interface)
-*   Support native python client and a java client
-*   Support a CLI implemented with python client
-*   Through WUI, will probably Javascript client for rich web interaction/node.js support (if desired)
 
-## Python client example (Search)
 
-Dump Datacat path, resource path, vetoEvents metadata value for datasets at SLAC
 
+# Python client example (Search)
+
+*Dump a Datacat path, resource path, vetoEvents metadata value for datasets at SLAC*
 
 ```python
 #!/usr/bin/python
