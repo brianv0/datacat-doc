@@ -26,13 +26,13 @@ There are extra flags to restrict searches to groups or folders. For example, aÂ
 
 Some examples could be this:
 
-* ${path} - Check **only** the container denoted by path, and return datasets in this containr (implied)
-* ${path}/* - Check datasets in the child containers of this folder
-* ${path}/** - Check any descendent folder or group of this path (recursive)
-* ${path}/*^ - Check only the child groups of this path
-* ${path}/**^ - Check any descendent group of this path (recursive)
-* ${path}/*$ - Check only the child folders of this path
-* ${path}/**$ - Check any descendent folder of this path (recursive)
+* `${path}` - Check **only** the container denoted by path, and return datasets in this containr (implied)
+* `${path}/*` - Check datasets in the child containers of this folder
+* `${path}/**` - Check any descendent folder or group of this path (recursive)
+* `${path}/*^` - Check only the child groups of this path
+* `${path}/**^` - Check any descendent group of this path (recursive)
+* `${path}/*$` - Check only the child folders of this path
+* `${path}/**$` - Check any descendent folder of this path (recursive)
 
 ## The Search Langauge
 
