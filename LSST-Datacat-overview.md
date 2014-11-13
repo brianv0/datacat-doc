@@ -98,25 +98,30 @@ These are clients we directly support.
 *   Through WUI, will probably Javascript client for rich web interaction/node.js support (if desired)
 
 ## Python client example (Search)
-#### Dump Datacat path, resource path, vetoEvents metadata value for datasets at&nbsp;SLAC
 
-    #!/usr/bin/python
-    from datacat import Client
-    from datacat.config import autoconfig
-    
-    client = Client(**autoconfig())                  # autoconfig discovers URL, user info
-    
-    container_pattern = "/LSST/Data/Raw/*"           # Search inside child containers of Raw
-    query = 'run > 6200 and runQuality =~ "GO*"'     # Filter query (in SQL: run > 6200 AND runQuality LIKE 'GO%')
-    sort = ["run-", "events"]                        # Sort run desc, events asc (asc default). These are retrieved
-    show = ["vetoEvents"]                            # Retrieve vetoEvents metadata as well
-    
-    datasets = client.search(container_pattern, site="SLAC", query=query, sort=sort, show=show)
-    
-    print("Path\tResource\tvetoEvents")
-    for dataset in datasets:
-        print("%s\t%s\t%s", %(dataset.path, dataset.resource, dataset.metadata['vetoEvents']))
-        with f as open(dataset.resource, "r+b"):
-            dat = f.read()
-            # do some work with the file
-            
+Dump Datacat path, resource path, vetoEvents metadata value for datasets at SLAC
+
+
+```python
+#!/usr/bin/python
+from datacat import Client
+from datacat.config import autoconfig
+
+client = Client(**autoconfig())                  # autoconfig discovers URL, user info
+
+container_pattern = "/LSST/Data/Raw/*"           # Search inside child containers of Raw
+query = 'run > 6200 and runQuality =~ "GO*"'     # Filter query (in SQL: run > 6200 AND runQuality LIKE 'GO%')
+sort = ["run-", "events"]                        # Sort run desc, events asc (asc default). These are retrieved
+show = ["vetoEvents"]                            # Retrieve vetoEvents metadata as well
+
+datasets = client.search(container_pattern, site="SLAC", query=query, sort=sort, show=show)
+
+print("Path\tResource\tvetoEvents")
+
+for dataset in datasets:
+  print("%s\t%s\t%s", %(dataset.path, dataset.resource, dataset.metadata['vetoEvents']))
+  with f as open(dataset.resource, "r+b"):
+      dat = f.read()
+      # do some work with the file
+
+```
