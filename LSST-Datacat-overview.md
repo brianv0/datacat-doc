@@ -67,10 +67,10 @@ Datacat implements a subset of AFS ACLs. User authentication and group checking 
 
 ### Metadata
 There are several types of metadata for any given Datacat file:
-1.  Datacat metadata - dataset/container name, creation time, etc...
-2.  File metadata - size in bytes, checksum, etc...
-3.  User metadata - any key:value pair (where value is a string, number, or timestamp)
-4.  Foreign metadata - Relational metadata not maintained by the datacatalog (i.e. not file or user)
+1. Datacat metadata - dataset/container name, creation time, etc...
+2. File metadata - size in bytes, checksum, etc...
+3. User metadata - any key:value pair (where value is a string, number, or timestamp)
+4. Foreign metadata - Relational metadata not maintained by the datacatalog (i.e. not file or user)
 
 The first three types are indexed in our current SQL implementation. Still, there's room for improvement depending on the underlying DBMS (i.e partitioning).
 
