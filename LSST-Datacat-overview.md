@@ -59,10 +59,10 @@ The core of Datacat Server is implemented as a VFS
 ### ACLs
 Datacat implements a subset of AFS ACLs. User authentication and group checking is pluggable
 *   Authentication handled by the REST web application
-*   Authorization handled in the VFS
-    *   Kind of like: `True in [(e.group in userGroups and e.permission == requestedPermission) for e in acl]`
+*   Authorization handled in the VFS by checking user's groups to container's ACL
+    *  i.e `True in [(e.group in userGroups and e.permission == requestedPermission) for e in acl]`
 *   It's recommended to use a web-based SSO system which has group support&nbsp;
-    *   Ideally, it should support groups
+    *  Ideally, it should support groups
 *   We have a &quot;GroupManager&quot; service which can retrieve the list of groups a user is in and manage group membership
 
 ### Metadata
