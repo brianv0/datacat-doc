@@ -22,6 +22,9 @@
 ### And how we might describe "Datacat" going forward...
 Datacat is a semantic meta-file system with metadata indexing built for the web. It is designed for the tracking and organization of files and their replicas across heterogeneous storage systems. We've designed it to be web-first with a REST api to facilitate ease of use among globally diverse systems and users.
 
+Overview
+========
+
 ## Primitives
 Datacat defines two main file system-like primitives for interaction
 *   **Dataset**, the abstract representation of a data file
