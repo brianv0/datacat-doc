@@ -8,21 +8,19 @@
   * Around 4.7 PB of files ~(200MB/file)
   * SRS sees very similar file sizes, although only manages 1.6 million files over several different projects
 
-## We've been refining the details of it over the last 18 months.
+### We've been refining the details of it over the last 18 months.
 * Why? Because more people want to use it, and we want more people to be able to use it
 * Web-First, REST api, generic, etc...
 * Server implementation reimagined as a caching VFS with a database-backed datastore.
    * Database-enforced ACLs are hard, so VFS handles that
 * Datastore interface doesn't limit to SQL DBMS only, but that's the only implementation so far
 
-## How we see Datacat going forward
+**"Datacat" is an ongoing parallel improvement of the Fermi Data Catalog, intended for better modularity and reuse across experiments.**
+
+**The biggest limitation for using the rewrite in the next 3 months is probably the direct user interaction through Web User Interface, which is currently Oracle-only, but prototype implementations using the VFS exist.**
+
+### And how we might describe "Datacat" going forward...
 Datacat is a semantic meta-file system with metadata indexing built for the web. It is designed for the tracking and organization of files and their replicas across heterogeneous storage systems. We've designed it to be web-first with a REST api to facilitate ease of use among globally diverse systems and users.
-
-**Note: Datacat is an ongoing rewrite, intended for better modularity and reuse across experiments, of the Fermi Data Catalog application.**
-
-**All features mentioned have been implemented in either the new rewrite or the current implementation, but some are still being implemented for the rewrite.**
-
-**The biggest limitation for using the rewrite today is probably the direct user interaction through Web User Interface, which is currently Oracle-only, but prototype implementations exist**
 
 ## Primitives
 Datacat defines two main file system-like primitives for interaction
